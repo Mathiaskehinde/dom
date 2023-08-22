@@ -1,6 +1,6 @@
 let addToCartButtons = document.getElementsByClassName('btn-primary')
 let cartContainer = document.getElementsByTagName('tbody')[0]
-let quantityFields = document.getElementsByClassName('num')
+// let quantityFields = document.getElementsByClassName('num')
 let delete_buttons = document.getElementsByClassName('uk-button-danger')
 
 // picking up all the Add-To-Cart buttons
@@ -34,6 +34,62 @@ function addToCart(event){
 `
 
     cartContainer.append(itemContainer)
+
+
+
+
+
+
+    function updateGrandTotal() {
+        let total = 0;
+    
+        checkboxes.forEach((checkbox, index) => {
+            if (checkbox.checked) {
+                const itemPrice = parseInt(itemPrices[index].textContent.replace(/[^0-9]/g, ''));
+                const quantity = parseInt(quantities[index].value);
+                const itemTotal = itemPrice * quantity;
+                console.log(`Item Total for item ${index}: ${itemTotal}`);
+                total += itemTotal;
+            }
+        });
+    
+        console.log(`Grand Total: ${total}`);
+        grandTotal.textContent = `#${total.toLocaleString()}`;
+    }
+    
+
+
+
+
+
+//     // Get references to the relevant DOM elements
+// const checkboxes = document.querySelectorAll('.uk-checkbox');
+// const itemPrices = document.querySelectorAll('.item-price h3');
+// const quantities = document.querySelectorAll('.num');
+// const grandTotal = document.querySelector('.grand-total h3 strong');
+
+// // Add event listeners to checkboxes and quantities
+// checkboxes.forEach((checkbox, index) => {
+//     checkbox.addEventListener('change', () => updateGrandTotal());
+//     quantities[index].addEventListener('input', () => updateGrandTotal());
+// });
+
+// // Function to update the grand total based on selected items and quantities
+// function updateGrandTotal() {
+//     let total = 0;
+
+//     checkboxes.forEach((checkbox, index) => {
+//         if (checkbox.checked) {
+//             const itemPrice = parseInt(itemPrices[index].textContent.replace(/[^0-9]/g, ''));
+//             const quantity = parseInt(quantities[index].value);
+//             const itemTotal = itemPrice * quantity;
+//             total += itemTotal;
+//         }
+//     });
+
+//     grandTotal.textContent = `#${total.toLocaleString()}`;
+// }
+
 
 
 
