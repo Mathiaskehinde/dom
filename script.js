@@ -133,7 +133,7 @@ function totalCost(event){
 // This function helps to add up the total of the items
 function grandTotal(){
     let total = 0
-    let grand_total = document.getElementsByClassName('grand-total')[0]
+    let grand_total = document.getElementById('grand-total')[0]
     all_total_fields = document.getElementsByClassName('total-price')
     for(let i = 0; i < all_total_fields.length; i++){
         all_prices = Number(all_total_fields[i].innerText.replace('$', ''))
